@@ -5,7 +5,7 @@
 typedef float vect[100];
 
 
-void Horner(int deg, vect Pn, float *b, float al)
+void derive(int deg, vect Pn, float *b, float al)
 {
   int i;
 
@@ -39,11 +39,11 @@ int main(void)
 
   for( i=0 ; i<n ; i++)
   {
-    Horner(deg, Pn, &b[0], x[i]) ;
+    derive(deg, Pn, &b[0], x[i]) ;
     P[i] = b[deg];
 
     printf("P(%f) = %f\n",x[i], P[i]) ;
-    Horner(deg-1, b, &c[0], x[i]) ;
+    derive(deg-1, b, &c[0], x[i]) ;
     dP[i] = c[deg -1];
     printf("P'(%f) = %f\n",x[i], dP[i]) ;
   }

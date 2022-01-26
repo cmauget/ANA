@@ -1,3 +1,0 @@
-       program diveuclid
-       implicit none
-       

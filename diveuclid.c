@@ -5,10 +5,6 @@
 typedef float vect[100];
 
 
-//void Horner(int deg, vect Pn, float *b, float al) ;
-
-
-//----FONCTION----
 void Horner(int deg, vect Pn, float *b, float al)
 {
   int i;
@@ -20,6 +16,8 @@ void Horner(int deg, vect Pn, float *b, float al)
   }
 
 }
+
+
 
 int main(void)
 {

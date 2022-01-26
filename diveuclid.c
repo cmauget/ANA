@@ -25,7 +25,9 @@ int main(void)
 {
   int i, deg = 5, n = 9;
   float h=1 ;
-  vect Pn = {1,-3,0,2,0,-13}, x, b, c , dP, P ;
+  vect Pn, x, b, c , dP, P ;
+
+  Pn  = {1,-3,0,2,0,-13}; // Entrez les alpha du polynome ici
 
 
 

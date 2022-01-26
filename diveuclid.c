@@ -21,10 +21,12 @@ void Horner(int deg, vect Pn, float *b, float al)
 
 int main(void)
 {
-  int i, deg = 5, n = 9;
+  int i,deg ,n;
   float h=1 ;
   vect Pn, x, b, c , dP, P ;
 
+  deg = 5; //Entrez les deg de P
+  n=9;
   Pn  = {1,-3,0,2,0,-13}; // Entrez les alpha du polynome ici
 
 

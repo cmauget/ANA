@@ -1,0 +1,3 @@
+       program diveuclid
+       implicit none
+       

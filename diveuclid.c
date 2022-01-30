@@ -5,53 +5,65 @@
 typedef float vect[100];
 
 
-void derive(int deg, vect Pn, float *b, float al)
+
+void save( float sum, vect P, float x, int deg )
 {
   int i;
+  FILE *fichier ;
 
-  b[0] = Pn[0] ;
-  for( i=0 ; i<=deg ; i++)
-  {
-    b[i] = Pn[i] + al * b[i-1] ;
-  }
+  fichier = fopen("valpolyR.txt","w") ;
 
+  for(i=deg;i>=0;i--)
+     {
+        fprintf(fichier, "Le coefficient de  X^%d  est %f \n",i, P[i]);
+     }
+
+  fprintf(fichier,"La valeur du polynome en %f est = %f",x,sum) ;
+  fclose (fichier) ;
 }
 
+/*void read_ints ();
+  {
+    FILE* file = fopen ("valpolyE.txt", "r");
+    int i = 0;
+
+    while (!feof (file))
+      {
+        fscanf (file, "%d", &i);
+        printf ("%d ", i);
+      }
+    fclose (file);
+  }*/
 
 
 int main(void)
 {
-  int i,deg ,n;
-  float h=1 ;
-  vect Pn, x, b, c , dP, P ;
+  int i,deg;
+  float sum,x;
+  vect P;
 
-  deg = 5; //Entrez les deg de P
-  n=9;
-  Pn  = {1,-3,0,2,0,-13}; // Entrez les alpha du polynome ici
+  printf("Entrez le deg du poly =  ");
+  scanf("%d",&deg);
+//  printf("\n");
 
+  for(i=deg;i>=0;i--)
+     {
+        printf("Entrez le coefficient de  X^%d  = ",i);
+        scanf("%f",&P[i]);
+     }
 
+  printf("Entrez la valuer de X =  ");
+  scanf("%f",&x);
+  /* deg = 5; //Entrez les deg de P
+  P  = {1,-3,0,2,0,-13}; // Entrez les alpha du polynome ici
+  x= 3; //entrez la valuer ou évaluer le polynôme */
 
-  x[0] = -4 ;
-  for( i=1 ; i<n ; i++)
+  for( i=deg; i>0; i--)
   {
-    x[i] = x[i-1] + h ;
+    sum=(sum + P[i])*x ;
   }
 
-  for( i=0 ; i<n ; i++)
-  {
-    derive(deg, Pn, &b[0], x[i]) ;
-    P[i] = b[deg];
-
-    printf("P(%f) = %f\n",x[i], P[i]) ;
-    derive(deg-1, b, &c[0], x[i]) ;
-    dP[i] = c[deg -1];
-    printf("P'(%f) = %f\n",x[i], dP[i]) ;
-  }
-
-
-
-  for(i=0 ; i<n ; i++){
-    printf( "%f;%f;%f\n",x[i],P[i],dP[i]);
-  }
-
+  sum=sum+P[0];
+  printf("La valuer du polynome est = %f \n",sum);
+  save(sum,P,x,deg);
 }

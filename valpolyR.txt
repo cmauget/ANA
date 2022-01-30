@@ -1,0 +1,5 @@
+Le coefficient de  X^3  est 1.000000 
+Le coefficient de  X^2  est 2.000000 
+Le coefficient de  X^1  est 3.000000 
+Le coefficient de  X^0  est 4.000000 
+La valeur du polynome en 3.000000 est = 58.000000

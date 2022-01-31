@@ -71,7 +71,7 @@ int main(void)
 
   for( i=deg; i>0; i--)
   {
-    sum=(sum + P[i])*x ;
+    sum=sum + P[i]*x ;
   }
 
   sum=sum+P[0];

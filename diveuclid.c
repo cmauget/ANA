@@ -4,6 +4,8 @@
 #include <time.h>
 #include <sys/time.h>
 
+#define ficinput
+
 typedef float vect[100];
 
 float time_diff2(struct timespec *start, struct timespec *end)
@@ -52,6 +54,7 @@ int main(void)
   struct timespec start; //Heure de début de l'execution
   struct timespec end; //Heure de fin de l'éxécution
 
+  #ifdef useinput
   printf("Entrez le deg du poly =  ");
   scanf("%d",&deg);
 //  printf("\n");
@@ -64,9 +67,19 @@ int main(void)
 
   printf("Entrez la valuer de X =  ");
   scanf("%f",&x);
-  /* deg = 5; //Entrez les deg de P
-  P  = {1,-3,0,2,0,-13}; // Entrez les alpha du polynome ici
-  x= 3; //entrez la valuer ou évaluer le polynôme */
+  #endif
+
+  #ifdef ficinput
+  scanf("%d",&deg);
+
+  for(i=deg;i>=0;i--)
+     {
+        scanf("%f",&P[i]);
+     }
+  scanf("%f",&x);
+
+  #endif
+
   clock_gettime(CLOCK_REALTIME, &start); //On récupère l'heure de début
 
   for( i=deg; i>0; i--)
